@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 3 Vibe Coding Guide</title>
+    <!-- Using system fonts for better compatibility -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">Gemini 3 Coding</h1>
+            <p class="subtitle">Vibe Guide for Modern Dev</p>
+        </header>
+
+        <!-- Category Filters -->
+        <nav class="category-nav">
+            <div class="category-scroll">
+                <button class="category-pill active" data-category="all">All</button>
+                <button class="category-pill" data-category="basics">Basics</button>
+                <button class="category-pill" data-category="prompts">Prompts</button>
+                <button class="category-pill" data-category="code">Code Gen</button>
+                <button class="category-pill" data-category="optimize">Optimize</button>
+                <button class="category-pill" data-category="debug">Debug</button>
+                <button class="category-pill" data-category="advanced">Advanced</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Quick Tips Section -->
+            <section class="content-section">
+                <h2 class="section-title">Quick Vibes</h2>
+                <div class="tips-grid">
+                    <div class="tip-card" data-category="basics">
+                        <div class="tip-icon">⚡</div>
+                        <h3 class="tip-title">Context is King</h3>
+                        <p class="tip-desc">Give Gemini 3 specific context for better responses. Include your code structure, goals, and constraints.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-success">Essential</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="prompts">
+                        <div class="tip-icon">🎯</div>
+                        <h3 class="tip-title">Break It Down</h3>
+                        <p class="tip-desc">Complex requests work better when split into smaller, focused prompts with clear objectives.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-warning">Best Practice</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="code">
+                        <div class="tip-icon">🚀</div>
+                        <h3 class="tip-title">Code Templates</h3>
+                        <p class="tip-desc">Provide code templates or boilerplate to guide Gemini 3 toward your preferred style and structure.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-success">Productivity</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="optimize">
+                        <div class="tip-icon">🎨</div>
+                        <h3 class="tip-title">Style Consistency</h3>
+                        <p class="tip-desc">Include your existing codebase style guide to ensure Gemini generates consistent, maintainable code.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-warning">Architecture</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="debug">
+                        <div class="tip-icon">🔍</div>
+                        <h3 class="tip-title">Error Context</h3>
+                        <p class="tip-desc">Always include error messages, stack traces, and the specific conditions that cause issues.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-success">Essential</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="advanced">
+                        <div class="tip-icon">🧠</div>
+                        <h3 class="tip-title">Multi-Step Reasoning</h3>
+                        <p class="tip-desc">For complex algorithms, ask Gemini to explain its reasoning step-by-step before generating code.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-warning">Advanced</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="basics">
+                        <div class="tip-icon">📝</div>
+                        <h3 class="tip-title">Output Format</h3>
+                        <p class="tip-desc">Specify exactly how you want the response: JSON, markdown, specific comment style, or plain code.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-success">Best Practice</span>
+                        </div>
+                    </div>
+
+                    <div class="tip-card" data-category="prompts">
+                        <div class="tip-icon">🔄</div>
+                        <h3 class="tip-title">Iterative Refinement</h3>
+                        <p class="tip-desc">Start broad, then refine with follow-up questions based on the initial response.</p>
+                        <div class="tip-tags">
+                            <span class="tag tag-warning">Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Examples Section -->
+            <section class="content-section">
+                <h2 class="section-title">Code Patterns</h2>
+                <div class="code-examples">
+                    <div class="code-card" data-category="code">
+                        <div class="code-header">
+                            <span class="language-label">JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code>// Prompt template for function creation
+const prompt = `
+Create a ${functionType} function that:
+- Takes ${parameters} as input
+- Returns ${expectedOutput}
+- Follows ${codingStandards}
+- Includes error handling for edge cases
+`;
+
+// Example usage
+const createUserPrompt = `
+Create an async function that:
+- Takes a user object with {name, email, age}
+- Validates email format using regex
+- Returns a Promise that resolves with user ID
+- Includes proper error handling
+- Follows ES6+ standards
+`;</code></pre>
+                        <div class="code-tags">
+                            <span class="tag">Template</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="code-card" data-category="debug">
+                        <div class="code-header">
+                            <span class="language-label">Python</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code># Debug prompt template
+debug_prompt = f"""
+Debug this {language} code:
+```{language}
+{problematic_code}
+```
+
+Error message: {error_message}
+
+Please:
+1. Identify the root cause
+2. Explain why it fails
+3. Provide corrected code
+4. Add comments explaining the fix
+5. Suggest preventive measures
+"""
+
+# Example debugging session
+code = "def divide(a, b): return a / b if b != 0 else None"
+error = "ZeroDivisionError when b=0"
+debug_prompt = f"Debug: {code}\nError: {error}"</code></pre>
+                        <div class="code-tags">
+                            <span class="tag">Debugging</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="code-card" data-category="code">
+                        <div class="code-header">
+                            <span class="language-label">React</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code>// React Component Prompt Template
+const reactPrompt = `
+Create a React functional component with TypeScript that:
+- Props: ${propsDefinition}
+- Uses ${stateManagement} for state
+- Includes ${lifecycleMethods}
+- Follows ${namingConventions}
+- Implements ${accessibilityFeatures}
+- Uses ${stylingApproach}
+`;
+
+// Example specific request
+const userCardPrompt = `
+Create a TypeScript React component called UserCard that:
+- Props: { user: { name: string, email: string, avatar?: string } }
+- Uses React.useState for local state
+- Shows user avatar with fallback
+- Implements loading and error states
+- Uses CSS modules for styling
+- Includes proper ARIA labels
+`;</code></pre>
+                        <div class="code-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                        </div>
+                    </div>
+
+                    <div class="code-card" data-category="optimize">
+                        <div class="code-header">
+                            <span class="language-label">SQL</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code>-- Database Query Optimization Prompt
+optimize_query_prompt = f"""
+Optimize this {database_type} query for performance:
+
+{query}
+
+Current issues:
+- Execution time: {execution_time}
+- Table sizes: {table_info}
+- Index usage: {index_info}
+
+Please:
+1. Identify performance bottlenecks
+2. Suggest index improvements
+3. Provide optimized query
+4. Explain the changes made
+5. Estimate performance improvement
+"""
+
+-- Example optimization request
+query = """
+SELECT u.name, COUNT(o.id) as order_count
+FROM users u 
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.created_at > '2024-01-01'
+GROUP BY u.id
+"""
+optimize_prompt = f"Optimize: {query}"</code></pre>
+                        <div class="code-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="code-card" data-category="advanced">
+                        <div class="code-header">
+                            <span class="language-label">API Design</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <pre class="code-block"><code>// API Design Prompt Template
+const apiPrompt = `
+Design a REST API for ${resourceName} with:
+
+Requirements:
+- CRUD operations: ${operations}
+- Authentication: ${authMethod}
+- Rate limiting: ${rateLimit}
+- Data validation: ${validationRules}
+- Error handling: ${errorStrategy}
+
+Deliverables:
+1. OpenAPI/Swagger specification
+2. Endpoint definitions with methods
+3. Request/response schemas
+4. Status codes and error formats
+5. Authentication flow
+6. Example requests/responses
+`;
+
+// Example API design request
+const userApiPrompt = `
+Design a REST API for user management with:
+- CRUD operations: Create, Read, Update, Delete users
+- Authentication: JWT tokens with refresh
+- Rate limiting: 100 requests per minute per user
+- Data validation: Email format, password strength
+- Error handling: Consistent error responses
+
+Include OpenAPI 3.0 specification.
+`;</code></pre>
+                        <div class="code-tags">
+                            <span class="tag">API Design</span>
+                            <span class="tag">OpenAPI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Patterns Section -->
+            <section class="content-section">
+                <h2 class="section-title">Advanced Techniques</h2>
+                <div class="advanced-grid">
+                    <div class="pattern-card" data-category="advanced">
+                        <h3 class="pattern-title">🎭 Role-Based Prompts</h3>
+                        <p class="pattern-desc">Frame your requests with specific roles for better context:</p>
+                        <div class="pattern-example">
+                            <div class="example-label">Structure:</div>
+                            <pre class="example-code"><code>Act as a [specific role] with [expertise level].
+Context: [background info]
+Task: [specific request]
+Constraints: [limitations]
+Output: [expected format]</code></pre>
+                        </div>
+                        <div class="tip-tags">
+                            <span class="tag tag-success">Pro Tip</span>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card" data-category="optimize">
+                        <h3 class="pattern-title">⚙️ Iterative Refinement</h3>
+                        <p class="pattern-desc">Use feedback loops to improve results systematically:</p>
+                        <div class="pattern-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">Initial generation with base prompt</div>
+                        </div>
+                        <div class="pattern-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">Review and identify improvement areas</div>
+                        </div>
+                        <div class="pattern-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">Refine with specific feedback</div>
+                        </div>
+                        <div class="pattern-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">Repeat until satisfied</div>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card" data-category="basics">
+                        <h3 class="pattern-title">🎨 Context Injection</h3>
+                        <p class="pattern-desc">Embed relevant context directly in your prompts:</p>
+                        <div class="pattern-code-block">
+                            <div class="context-section">
+                                <div class="context-label">Project Context:</div>
+                                <div class="context-content">React + TypeScript + Tailwind CSS</div>
+                            </div>
+                            <div class="context-section">
+                                <div class="context-label">Current Component:</div>
+                                <div class="context-content">UserDashboard.tsx</div>
+                            </div>
+                            <div class="context-section">
+                                <div class="context-label">Requirements:</div>
+                                <div class="context-content">Responsive, accessible, follows design system</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Practices Section -->
+            <section class="content-section">
+                <h2 class="section-title">Best Practices</h2>
+                <div class="practices-list">
+                    <div class="practice-item" data-category="basics">
+                        <div class="practice-icon">✅</div>
+                        <div class="practice-content">
+                            <h4 class="practice-title">Be Specific About Output Format</h4>
+                            <p class="practice-desc">Tell Gemini exactly what format you want: JSON, markdown, specific comments style, etc.</p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" data-category="optimize">
+                        <div class="practice-icon">✅</div>
+                        <div class="practice-content">
+                            <h4 class="practice-title">Provide Examples When Possible</h4>
+                            <p class="practice-desc">Show Gemini what "good" looks like with concrete examples of your desired outcome.</p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" data-category="prompts">
+                        <div class="practice-icon">✅</div>
+                        <div class="practice-content">
+                            <h4 class="practice-title">Use Chain of Thought</h4>
+                            <p class="practice-desc">Ask Gemini to think through problems step by step for complex logic and algorithms.</p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item" data-category="advanced">
+                        <div class="practice-icon">✅</div>
+                        <div class="practice-content">
+                            <h4 class="practice-title">Leverage Code Context Windows</h4>
+                            <p class="practice-desc">Include relevant existing code to maintain consistency in style, patterns, and architecture.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step-by-Step Tutorials Section -->
+            <section class="content-section">
+                <h2 class="section-title">Step-by-Step Tutorials</h2>
+                <div class="tutorials-grid">
+                    <div class="tutorial-card" data-category="prompts">
+                        <h3 class="tutorial-title">🔄 Building Complex Queries</h3>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">1</span>
+                                    <span class="step-title">Define Your Goal</span>
+                                </div>
+                                <p class="step-desc">Start with what you want to achieve. Be specific about input data and expected output.</p>
+                                <div class="step-example">
+                                    "I need to analyze user behavior data to find patterns in purchase decisions."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">2</span>
+                                    <span class="step-title">Break Into Components</span>
+                                </div>
+                                <p class="step-desc">Identify the data sources, transformations, and calculations needed.</p>
+                                <div class="step-example">
+                                    "Data sources: users, orders, products. Transformations: date filtering, aggregation. Calculations: conversion rates, average order value."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">3</span>
+                                    <span class="step-title">Request Step-by-Step Logic</span>
+                                </div>
+                                <p class="step-desc">Ask Gemini to explain the approach before writing code.</p>
+                                <div class="step-example">
+                                    "First explain your approach, then provide the SQL query with comments."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">4</span>
+                                    <span class="step-title">Refine and Optimize</span>
+                                </div>
+                                <p class="step-desc">Review the explanation and request optimizations if needed.</p>
+                                <div class="step-example">
+                                    "Can you optimize this for better performance and add index recommendations?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-card" data-category="code">
+                        <h3 class="tutorial-title">🚀 Creating React Components</h3>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">1</span>
+                                    <span class="step-title">Define Component Requirements</span>
+                                </div>
+                                <p class="step-desc">Specify props, state management, and styling approach upfront.</p>
+                                <div class="step-example">
+                                    "Create a TypeScript React component for a user profile card with avatar, name, email, and edit functionality."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">2</span>
+                                    <span class="step-title">Request Architecture First</span>
+                                </div>
+                                <p class="step-desc">Ask for the component structure and data flow before implementation.</p>
+                                <div class="step-example">
+                                    "First show me the component structure and props interface, then implement it."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">3</span>
+                                    <span class="step-title">Specify Styling and UX</span>
+                                </div>
+                                <p class="step-desc">Define the visual requirements and interaction patterns.</p>
+                                <div class="step-example">
+                                    "Use Tailwind CSS, include loading states, hover effects, and ensure mobile responsiveness."
+                                </div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-header">
+                                    <span class="step-icon">4</span>
+                                    <span class="step-title">Add Testing and Documentation</span>
+                                </div>
+                                <p class="step-desc">Request tests and usage examples to complete the component.</p>
+                                <div class="step-example">
+                                    "Add unit tests with React Testing Library and include usage examples."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Language-Specific Guides Section -->
+            <section class="content-section">
+                <h2 class="section-title">Language-Specific Guides</h2>
+                <div class="language-guides">
+                    <div class="language-card" data-category="code">
+                        <h3 class="language-title">🐍 Python Excellence</h3>
+                        <div class="language-tips">
+                            <div class="language-tip">
+                                <h4 class="tip-heading">🐍 Pythonic Code Style</h4>
+                                <p class="tip-text">Emphasize PEP 8 compliance, list comprehensions, and Python idioms.</p>
+                                <div class="tip-code">
+                                    <div class="code-label">❌ Less Effective:</div>
+                                    <pre><code>result = []
+for item in items:
+    if item.active:
+        result.append(item.name)</code></pre>
+                                    <div class="code-label">✅ More Effective:</div>
+                                    <pre><code>Create Pythonic code following PEP 8:
+- Use list comprehensions where appropriate
+- Follow naming conventions
+- Include type hints
+- Use context managers
+- Leverage Python built-ins</code></pre>
+                                </div>
+                            </div>
+                            <div class="language-tip">
+                                <h4 class="tip-heading">📦 Package Management</h4>
+                                <p class="tip-text">Specify virtual environment and dependency management approach.</p>
+                                <div class="tip-code">
+                                    <div class="code-label">Prompt Addition:</div>
+                                    <pre><code>Use modern Python practices:
+- Virtual environment: venv or poetry
+- Type hints with mypy validation
+- Testing with pytest
+- Code formatting with black
+- Linting with flake8</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="language-card" data-category="code">
+                        <h3 class="language-title">⚡ JavaScript/TypeScript Mastery</h3>
+                        <div class="language-tips">
+                            <div class="language-tip">
+                                <h4 class="tip-heading">🎯 Type Safety First</h4>
+                                <p class="tip-text">Always request TypeScript for better code quality and developer experience.</p>
+                                <div class="tip-code">
+                                    <div class="code-label">Essential Prompt:</div>
+                                    <pre><code>Use TypeScript with:
+- Strict type checking
+- Interface definitions
+- Generic types where appropriate
+- Proper error handling with Result types
+- ESLint + Prettier configuration</code></pre>
+                                </div>
+                            </div>
+                            <div class="language-tip">
+                                <h4 class="tip-heading">🏗️ Modern JavaScript</h4>
+                                <p class="tip-text">Specify ES6+ features and modern development practices.</p>
+                                <div class="tip-code">
+                                    <div class="code-label">Feature Checklist:</div>
+                                    <pre><code>Implement with modern JavaScript:
+- Arrow functions and destructuring
+- Async/await for asynchronous code
+- Template literals
+- Spread/rest operators
+- Optional chaining and nullish coalescing</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="language-card" data-category="code">
+                        <h3 class="language-title">🚀 Go Performance</h3>
+                        <div class="language-tips">
+                            <div class="language-tip">
+                                <h4 class="tip-heading">⚡ Go Best Practices</h4>
+                                <p class="tip-text">Focus on goroutines, channels, and idiomatic Go patterns.</p>
+                                <div class="tip-code">
+                                    <div class="code-label">Performance Prompt:</div>
+                                    <pre><code>Create efficient Go code with:
+- Proper error handling
+- Goroutines for concurrency
+- Channels for communication
+- Interface{} usage guidelines
+- Memory allocation optimization</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section class="content-section">
+                <h2 class="section-title">Troubleshooting Common Issues</h2>
+                <div class="troubleshooting-grid">
+                    <div class="issue-card" data-category="debug">
+                        <h3 class="issue-title">🔧 Code Not Working as Expected</h3>
+                        <div class="issue-content">
+                            <div class="issue-symptom">
+                                <span class="symptom-label">Symptom:</span>
+                                <span class="symptom-text">Gemini generates code that doesn't match requirements</span>
+                            </div>
+                            <div class="issue-solution">
+                                <span class="solution-label">Solution:</span>
+                                <div class="solution-steps">
+                                    <div class="solution-step">1. Add more specific examples of expected input/output</div>
+                                    <div class="solution-step">2. Include edge cases in your prompt</div>
+                                    <div class="solution-step">3. Request step-by-step validation of requirements</div>
+                                    <div class="solution-step">4. Ask for test cases that demonstrate correctness</div>
+                                </div>
+                            </div>
+                            <div class="issue-example">
+                                <span class="example-label">Improved Prompt:</span>
+                                <div class="example-prompt">
+                                    "Create a function that processes user data. Here's a specific example:
+                                    Input: {name: 'John', age: 25, email: 'john@example.com'}
+                                    Expected Output: {id: 'user_123', valid: true, processedAt: '2024-01-15T10:30:00Z'}
+                                    Include validation for email format and age ranges 18-100."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="issue-card" data-category="optimize">
+                        <h3 class="issue-title">🐌 Slow Code Generation</h3>
+                        <div class="issue-content">
+                            <div class="issue-symptom">
+                                <span class="symptom-label">Symptom:</span>
+                                <span class="symptom-text">Responses are too generic or take too long to generate</span>
+                            </div>
+                            <div class="issue-solution">
+                                <span class="solution-label">Solution:</span>
+                                <div class="solution-steps">
+                                    <div class="solution-step">1. Break complex requests into smaller, focused prompts</div>
+                                    <div class="solution-step">2. Use specific technical terminology</div>
+                                    <div class="solution-step">3. Reference existing code patterns in your project</div>
+                                    <div class="solution-step">4. Set clear boundaries on response length</div>
+                                </div>
+                            </div>
+                            <div class="issue-example">
+                                <span class="example-label">Optimization Tip:</span>
+                                <div class="example-prompt">
+                                    "Instead of: 'Build a complete e-commerce system'
+                                    Use: 'Create a ProductCard component with add-to-cart functionality. Focus on React hooks and state management only.'"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="issue-card" data-category="basics">
+                        <h3 class="issue-title">📝 Inconsistent Code Style</h3>
+                        <div class="issue-content">
+                            <div class="issue-symptom">
+                                <span class="symptom-label">Symptom:</span>
+                                <span class="symptom-text">Generated code doesn't match your project's coding standards</span>
+                            </div>
+                            <div class="issue-solution">
+                                <span class="solution-label">Solution:</span>
+                                <div class="solution-steps">
+                                    <div class="solution-step">1. Include your project's style guide in the prompt</div>
+                                    <div class="solution-step">2. Provide examples of your preferred code patterns</div>
+                                    <div class="solution-step">3. Specify naming conventions and file structure</div>
+                                    <div class="solution-step">4. Request linting and formatting requirements</div>
+                                </div>
+                            </div>
+                            <div class="issue-example">
+                                <span class="example-label">Style Guide Prompt:</span>
+                                <div class="example-prompt">
+                                    "Follow our project conventions:
+                                    - File naming: kebab-case for files, PascalCase for components
+                                    - Variable naming: camelCase, const for immutable
+                                    - Function structure: early returns, single responsibility
+                                    - Comments: JSDoc for public APIs, inline for complex logic"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Real-World Examples Section -->
+            <section class="content-section">
+                <h2 class="section-title">Real-World Examples</h2>
+                <div class="examples-showcase">
+                    <div class="example-card" data-category="advanced">
+                        <h3 class="example-title">🏢 Enterprise API Development</h3>
+                        <div class="example-scenario">
+                            <h4 class="scenario-heading">Scenario: Microservices Architecture</h4>
+                            <p class="scenario-desc">Building a user authentication service for a large application.</p>
+                        </div>
+                        <div class="example-prompt-section">
+                            <h4 class="prompt-heading">Effective Prompt Chain:</h4>
+                            <div class="prompt-step">
+                                <span class="prompt-number">1</span>
+                                <div class="prompt-content">
+                                    <strong>Initial Request:</strong>
+                                    <pre><code>Design a REST API for user authentication service with:
+- JWT token-based authentication
+- Rate limiting (1000 requests/hour)
+- User registration and login endpoints
+- Password reset functionality
+- Account lockout after failed attempts
+- Audit logging for security events</code></pre>
+                                </div>
+                            </div>
+                            <div class="prompt-step">
+                                <span class="prompt-number">2</span>
+                                <div class="prompt-content">
+                                    <strong>Follow-up Refinement:</strong>
+                                    <pre><code>Now implement the Node.js/Express version with:
+- TypeScript interfaces for all requests/responses
+- Input validation using Joi or similar
+- Error handling with proper HTTP status codes
+- Database integration with PostgreSQL
+- Environment configuration for dev/staging/prod
+- Unit tests with Jest (80%+ coverage)</code></pre>
+                                </div>
+                            </div>
+                            <div class="prompt-step">
+                                <span class="prompt-number">3</span>
+                                <div class="prompt-content">
+                                    <strong>Security Enhancement:</strong>
+                                    <pre><code>Add security hardening:
+- CORS configuration for specific domains
+- Helmet.js security headers
+- Rate limiting with Redis
+- SQL injection prevention
+- XSS protection
+- Input sanitization
+- Security logging and monitoring</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-card" data-category="code">
+                        <h3 class="example-title">📊 Data Processing Pipeline</h3>
+                        <div class="example-scenario">
+                            <h4 class="scenario-heading">Scenario: Real-time Analytics Dashboard</h4>
+                            <p class="scenario-desc">Building a system to process and visualize real-time user metrics.</p>
+                        </div>
+                        <div class="example-prompt-section">
+                            <h4 class="prompt-heading">Progressive Development Approach:</h4>
+                            <div class="prompt-step">
+                                <span class="prompt-number">1</span>
+                                <div class="prompt-content">
+                                    <strong>Data Model Design:</strong>
+                                    <pre><code>Design the data schema for real-time user metrics:
+- User sessions (session_id, user_id, start_time, end_time, page_views)
+- Events (event_id, session_id, event_type, timestamp, metadata)
+- Aggregations (time_window, metric_name, value, calculated_at)
+
+Include:
+- Index recommendations for time-series queries
+- Data retention policies
+- Partitioning strategy for large datasets</code></pre>
+                                </div>
+                            </div>
+                            <div class="prompt-step">
+                                <span class="prompt-number">2</span>
+                                <div class="prompt-content">
+                                    <strong>Processing Logic:</strong>
+                                    <pre><code>Create data processing pipeline in Python:
+- Real-time event ingestion using Kafka
+- Stream processing with Apache Flink or similar
+- Data validation and cleaning
+- Aggregation calculations (minute, hour, day)
+- Error handling and dead letter queues
+- Performance monitoring and alerting</code></pre>
+                                </div>
+                            </div>
+                            <div class="prompt-step">
+                                <span class="prompt-number">3</span>
+                                <div class="prompt-content">
+                                    <strong>Visualization Component:</strong>
+                                    <pre><code>Build React dashboard component with:
+- Real-time data updates using WebSocket
+- Chart.js or D3.js for visualizations
+- Responsive design for mobile/desktop
+- Loading states and error boundaries
+- Data export functionality
+- Time range filtering and drill-down capabilities</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Tips Section -->
+            <section class="content-section">
+                <h2 class="section-title">Performance Optimization Tips</h2>
+                <div class="performance-tips">
+                    <div class="perf-card" data-category="optimize">
+                        <h3 class="perf-title">⚡ Query Optimization</h3>
+                        <div class="perf-content">
+                            <div class="perf-strategy">
+                                <h4 class="strategy-title">Database Performance</h4>
+                                <p class="strategy-desc">Improve database query performance with targeted prompts.</p>
+                                <div class="strategy-example">
+                                    <div class="example-header">Query Optimization Prompt:</div>
+                                    <pre><code>Optimize this {database_type} query for performance:
+
+{current_query}
+
+Current performance:
+- Average execution time: {time}
+- Rows examined: {rows}
+- Index usage: {index_info}
+
+Please provide:
+1. Optimized query with explanation
+2. Required indexes
+3. Estimated performance improvement
+4. Alternative approaches if applicable</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perf-card" data-category="optimize">
+                        <h3 class="perf-title">🚀 Frontend Performance</h3>
+                        <div class="perf-content">
+                            <div class="perf-strategy">
+                                <h4 class="strategy-title">React Performance</h4>
+                                <p class="strategy-desc">Optimize React applications for better user experience.</p>
+                                <div class="strategy-example">
+                                    <div class="example-header">React Optimization Prompt:</div>
+                                    <pre><code>Optimize this React component for performance:
+
+{component_code}
+
+Performance requirements:
+- Render time < 16ms (60fps)
+- Bundle size optimization
+- Memory usage efficiency
+- Mobile device compatibility
+
+Provide:
+1. Performance bottlenecks identified
+2. Optimization techniques applied
+3. Before/after metrics
+4. Alternative implementation if significantly better</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perf-card" data-category="advanced">
+                        <h3 class="perf-title">🏗️ Architecture Optimization</h3>
+                        <div class="perf-content">
+                            <div class="perf-strategy">
+                                <h4 class="strategy-title">System Design</h4>
+                                <p class="strategy-desc">Design scalable architectures for high-traffic applications.</p>
+                                <div class="strategy-example">
+                                    <div class="example-header">Architecture Design Prompt:</div>
+                                    <pre><code>Design scalable architecture for:
+
+Requirements:
+- Expected load: {traffic} requests/second
+- Latency requirement: < {latency}ms
+- Availability: {uptime}% uptime
+- Data consistency: {consistency_level}
+
+Deliverables:
+1. High-level architecture diagram
+2. Technology stack recommendations
+3. Scalability strategy
+4. Performance monitoring plan
+5. Disaster recovery approach</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Workflows Section -->
+            <section class="content-section">
+                <h2 class="section-title">Advanced Workflows</h2>
+                <div class="workflows-grid">
+                    <div class="workflow-card" data-category="advanced">
+                        <h3 class="workflow-title">🔄 Continuous Integration Setup</h3>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-header">
+                                    <span class="step-icon">1</span>
+                                    <span class="step-title">Repository Structure</span>
+                                </div>
+                                <p class="step-desc">Set up proper monorepo structure for CI/CD pipeline.</p>
+                                <div class="step-code">
+                                    <pre><code>// CI/CD Pipeline Prompt Template
+ci_setup_prompt = f"""
+Set up CI/CD pipeline for {project_type} project:
+
+Repository Structure:
+{src_structure}
+
+Requirements:
+- Automated testing on pull requests
+- Code quality checks (linting, type checking)
+- Security vulnerability scanning
+- Automated deployment to staging/prod
+- Environment-specific configurations
+- Rollback capabilities
+
+Deliverables:
+1. GitHub Actions workflow files
+2. Docker containerization
+3. Testing configuration
+4. Deployment scripts
+5. Monitoring setup
+"""</code></pre>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-header">
+                                    <span class="step-icon">2</span>
+                                    <span class="step-title">Testing Strategy</span>
+                                </div>
+                                <p class="step-desc">Implement comprehensive testing approach with multiple test types.</p>
+                                <div class="step-code">
+                                    <pre><code>// Testing Framework Setup
+test_strategy_prompt = f"""
+Design testing strategy for {application_type}:
+
+Current Code Structure:
+{codebase_info}
+
+Testing Requirements:
+- Unit tests for business logic
+- Integration tests for API endpoints
+- End-to-end tests for critical user flows
+- Performance tests for load handling
+- Security tests for vulnerability scanning
+
+Provide:
+1. Test file structure and naming conventions
+2. Mock/stub strategies for external dependencies
+3. Test data management approach
+4. Coverage reporting configuration
+5. CI/CD integration for automated testing
+"""</code></pre>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-header">
+                                    <span class="step-icon">3</span>
+                                    <span class="step-title">Deployment Pipeline</span>
+                                </div>
+                                <p class="step-desc">Create robust deployment strategy with blue-green or rolling updates.</p>
+                                <div class="step-code">
+                                    <pre><code>// Deployment Strategy Prompt
+deployment_prompt = f"""
+Create deployment pipeline for {application_type}:
+
+Infrastructure:
+- Current hosting: {hosting_provider}
+- Database: {database_type}
+- CDN: {cdn_provider}
+- Monitoring: {monitoring_tools}
+
+Deployment Requirements:
+- Zero-downtime deployments
+- Automated rollback on failures
+- Environment promotion workflow
+- Database migration handling
+- Health check integration
+
+Deliverables:
+1. Deployment scripts (Terraform/CloudFormation)
+2. Blue-green deployment configuration
+3. Health check endpoints
+4. Monitoring and alerting setup
+5. Documentation for deployment process
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" data-category="optimize">
+                        <h3 class="workflow-title">📊 Data Pipeline Development</h3>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="step-header">
+                                    <span class="step-icon">1</span>
+                                    <span class="step-title">Data Model Design</span>
+                                </div>
+                                <p class="step-desc">Design efficient data models for analytical workloads.</p>
+                                <div class="step-code">
+                                    <pre><code>// Data Pipeline Architecture Prompt
+data_pipeline_prompt = f"""
+Design data pipeline for {business_case}:
+
+Data Sources:
+{source_systems}
+
+Requirements:
+- Real-time data ingestion
+- Historical data backfill capability
+- Data quality validation
+- Transformation logic for analytics
+- Data retention and archival
+- Performance optimization for queries
+
+Deliverables:
+1. Data flow architecture diagram
+2. ETL/ELT process definitions
+3. Data warehouse schema design
+4. Data quality monitoring rules
+5. Performance optimization strategies
+6. Disaster recovery procedures
+"""</code></pre>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="step-header">
+                                    <span class="step-icon">2</span>
+                                    <span class="step-title">Stream Processing</span>
+                                </div>
+                                <p class="step-desc">Implement real-time data processing with fault tolerance.</p>
+                                <div class="step-code">
+                                    <pre><code>// Stream Processing Implementation
+stream_processing_prompt = f"""
+Implement real-time stream processing for {use_case}:
+
+Stream Specifications:
+- Data volume: {volume} events/second
+- Processing latency: < {latency}ms
+- Fault tolerance: {tolerance_level}
+- Scalability requirements: {scale_requirements}
+
+Technology Stack:
+- Message broker: {broker_type}
+- Stream processing: {processor_type}
+- State management: {state_store}
+- Monitoring: {monitoring_stack}
+
+Provide:
+1. Stream processing topology
+2. State management strategy
+3. Error handling and retry logic
+4. Performance monitoring setup
+5. Scaling configuration
+6. Testing strategy for streaming data
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Review & Quality Section -->
+            <section class="content-section">
+                <h2 class="section-title">Code Review & Quality</h2>
+                <div class="quality-guides">
+                    <div class="quality-card" data-category="basics">
+                        <h3 class="quality-title">📝 Review Process Optimization</h3>
+                        <div class="quality-content">
+                            <div class="review-strategy">
+                                <h4 class="strategy-title">Automated Code Review</h4>
+                                <p class="strategy-desc">Set up automated tools to catch issues before human review.</p>
+                                <div class="strategy-example">
+                                    <div class="example-header">Code Review Setup Prompt:</div>
+                                    <pre><code>Configure automated code review for {project_type}:
+
+Current Stack:
+- Version control: {vcs_system}
+- Programming languages: {languages}
+- IDE/Editor: {editor}
+- Team size: {team_size}
+
+Automation Requirements:
+- Linting and formatting checks
+- Security vulnerability scanning
+- Dependency vulnerability checks
+- Code complexity analysis
+- Test coverage validation
+- Documentation completeness
+
+Tools Integration:
+1. Pre-commit hooks configuration
+2. GitHub/GitLab Actions workflows
+3. Code quality metrics dashboard
+4. Automated PR labeling and assignment
+5. Integration with team communication tools</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quality-card" data-category="advanced">
+                        <h3 class="quality-title">🎯 Quality Metrics</h3>
+                        <div class="quality-content">
+                            <div class="review-strategy">
+                                <h4 class="strategy-title">Code Quality Measurement</h4>
+                                <p class="strategy-desc">Implement comprehensive code quality metrics and monitoring.</p>
+                                <div class="strategy-example">
+                                    <div class="example-header">Quality Metrics Prompt:</div>
+                                    <pre><code>Implement code quality measurement system:
+
+Metrics to Track:
+- Code complexity (cyclomatic complexity)
+- Code duplication percentage
+- Test coverage by module
+- Technical debt ratio
+- Security vulnerability count
+- Performance regression indicators
+
+Dashboard Requirements:
+- Real-time quality metrics display
+- Trend analysis over time
+- Alert thresholds for quality gates
+- Integration with development workflow
+- Team performance insights
+
+Provide:
+1. Metrics collection strategy
+2. Quality gate definitions
+3. Dashboard implementation
+4. Alert notification system
+5. Quality improvement roadmap
+6. Team adoption strategy</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Best Practices Section -->
+            <section class="content-section">
+                <h2 class="section-title">Security Best Practices</h2>
+                <div class="security-guides">
+                    <div class="security-card" data-category="advanced">
+                        <h3 class="security-title">🔒 Application Security</h3>
+                        <div class="security-content">
+                            <div class="security-layer">
+                                <h4 class="layer-title">Authentication & Authorization</h4>
+                                <p class="layer-desc">Implement robust security patterns for user access control.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Security Implementation Prompt:</div>
+                                    <pre><code>Implement comprehensive security for {application_type}:
+
+Security Requirements:
+- Multi-factor authentication support
+- Role-based access control (RBAC)
+- Session management and timeout
+- API rate limiting and throttling
+- Input validation and sanitization
+- SQL injection prevention
+- XSS protection measures
+
+Compliance Standards:
+- OWASP Top 10 compliance
+- GDPR data protection requirements
+- Industry-specific regulations: {regulations}
+
+Deliverables:
+1. Security architecture documentation
+2. Authentication service implementation
+3. Authorization middleware
+4. Input validation utilities
+5. Security monitoring and logging
+6. Incident response procedures
+7. Security testing checklist</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-card" data-category="optimize">
+                        <h3 class="security-title">🛡️ Infrastructure Security</h3>
+                        <div class="security-content">
+                            <div class="security-layer">
+                                <h4 class="layer-title">Cloud Security Hardening</h4>
+                                <p class="layer-desc">Secure cloud infrastructure with industry best practices.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Infrastructure Security Prompt:</div>
+                                    <pre><code>Harden cloud infrastructure security for {cloud_provider}:
+
+Current Infrastructure:
+{infra_description}
+
+Security Controls:
+- Network segmentation and VPC configuration
+- Identity and Access Management (IAM)
+- Encryption at rest and in transit
+- Secrets management
+- Container security scanning
+- Infrastructure as Code security
+- Compliance monitoring
+
+Provide:
+1. Security architecture diagram
+2. IAM role and policy definitions
+3. Network security groups and rules
+4. Encryption configuration
+5. Secrets management strategy
+6. Security monitoring setup
+7. Compliance automation scripts
+8. Security incident response plan</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Deep Dive Section -->
+            <section class="content-section">
+                <h2 class="section-title">Performance Deep Dive</h2>
+                <div class="performance-deep">
+                    <div class="perf-analysis-card" data-category="optimize">
+                        <h3 class="analysis-title">⚡ Database Performance Tuning</h3>
+                        <div class="analysis-content">
+                            <div class="perf-phase">
+                                <h4 class="phase-title">Phase 1: Query Analysis</h4>
+                                <div class="phase-description">
+                                    <p>Systematic approach to identify and resolve database performance bottlenecks.</p>
+                                </div>
+                                <div class="phase-steps">
+                                    <div class="phase-step">
+                                        <span class="phase-number">1.1</span>
+                                        <div class="phase-content">
+                                            <strong>Query Performance Audit</strong>
+                                            <pre><code>-- Query Analysis Prompt Template
+analyze_queries_prompt = f"""
+Analyze database performance for {database_type}:
+
+Problematic Queries:
+{query_list}
+
+Current Performance:
+- Average execution time: {avg_time}ms
+- Peak execution time: {peak_time}ms
+- Query frequency: {frequency} calls/hour
+- Table sizes: {table_sizes}
+
+Database Statistics:
+- Index usage: {index_info}
+- Table fragmentation: {fragmentation}%
+- Buffer cache hit ratio: {cache_hit_ratio}%
+
+Provide:
+1. Performance bottleneck identification
+2. Index optimization recommendations
+3. Query rewrite suggestions
+4. Database configuration improvements
+5. Monitoring setup for ongoing performance tracking
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="phase-step">
+                                        <span class="phase-number">1.2</span>
+                                        <div class="phase-content">
+                                            <strong>Index Strategy Development</strong>
+                                            <pre><code>-- Index Optimization Prompt
+index_optimization_prompt = f"""
+Design optimal index strategy for {workload_type} workload:
+
+Database Schema:
+{schema_info}
+
+Query Patterns:
+{query_patterns}
+
+Current Indexes:
+{current_indexes}
+
+Performance Requirements:
+- Read performance: < {read_latency}ms
+- Write performance: < {write_latency}ms
+- Storage constraints: < {storage_limit}GB
+
+Deliverables:
+1. Recommended index additions
+2. Index removal suggestions for unused indexes
+3. Composite index strategies
+4. Index maintenance procedures
+5. Performance impact estimation
+6. Implementation timeline
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perf-analysis-card" data-category="advanced">
+                        <h3 class="analysis-title">🚀 Frontend Performance Engineering</h3>
+                        <div class="analysis-content">
+                            <div class="perf-phase">
+                                <h4 class="phase-title">Phase 2: Frontend Optimization</h4>
+                                <div class="phase-description">
+                                    <p>Comprehensive frontend performance optimization for modern web applications.</p>
+                                </div>
+                                <div class="phase-steps">
+                                    <div class="phase-step">
+                                        <span class="phase-number">2.1</span>
+                                        <div class="phase-content">
+                                            <strong>Bundle Optimization</strong>
+                                            <pre><code>// Frontend Performance Audit Prompt
+frontend_audit_prompt = f"""
+Optimize frontend performance for {application_type}:
+
+Current Bundle Analysis:
+- Total bundle size: {bundle_size}MB
+- JavaScript bundle: {js_size}MB
+- CSS bundle: {css_size}MB
+- Image assets: {img_size}MB
+- Third-party libraries: {third_party_size}MB
+
+Performance Metrics:
+- First Contentful Paint: {fcp}ms
+- Largest Contentful Paint: {lcp}ms
+- Cumulative Layout Shift: {cls}
+- First Input Delay: {fid}ms
+
+Optimization Targets:
+- Reduce bundle size by 30%
+- Improve LCP to < 2.5s
+- Maintain CLS < 0.1
+- Optimize for Core Web Vitals
+
+Provide:
+1. Code splitting strategy
+2. Tree shaking optimization
+3. Asset optimization recommendations
+4. Loading strategy improvements
+5. Performance monitoring setup
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="phase-step">
+                                        <span class="phase-number">2.2</span>
+                                        <div class="phase-content">
+                                            <strong>Runtime Performance</strong>
+                                            <pre><code>// Runtime Optimization Prompt
+runtime_optimization_prompt = f"""
+Optimize runtime performance for React/Vue/Angular app:
+
+Current Performance Issues:
+{performance_issues}
+
+Component Architecture:
+{component_structure}
+
+State Management:
+{state_management_info}
+
+Optimization Focus:
+- Component re-render optimization
+- Memory leak prevention
+- Event handler optimization
+- Animation performance
+- Virtual scrolling for large lists
+
+Deliverables:
+1. React.memo/shouldComponentUpdate implementation
+2. useMemo and useCallback optimization
+3. Virtual scrolling component
+4. Performance monitoring with React DevTools
+5. Memory profiling setup
+6. Bundle analyzer integration
+7. Performance budget configuration
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testing Strategies Section -->
+            <section class="content-section">
+                <h2 class="section-title">Testing Strategies</h2>
+                <div class="testing-strategies">
+                    <div class="testing-card" data-category="basics">
+                        <h3 class="testing-title">🧪 Comprehensive Testing</h3>
+                        <div class="testing-content">
+                            <div class="test-layer">
+                                <h4 class="layer-title">Unit Testing Excellence</h4>
+                                <p class="layer-desc">Create robust unit tests with high coverage and meaningful assertions.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Unit Testing Framework Prompt:</div>
+                                    <pre><code>Design unit testing strategy for {project_type}:
+
+Code Structure:
+{source_structure}
+
+Testing Requirements:
+- Test coverage target: {coverage_target}%
+- Test execution time: < {execution_time}s
+- Parallel test execution support
+- Mock/stub strategy for dependencies
+- Test data management approach
+
+Framework Specifications:
+- Unit testing framework: {unit_framework}
+- Assertion library: {assertion_lib}
+- Mocking library: {mocking_lib}
+- Test runner: {test_runner}
+
+Provide:
+1. Test file organization and naming conventions
+2. Mock strategy for external dependencies
+3. Test data factory patterns
+4. Assertion helper utilities
+5. CI/CD integration for automated testing
+6. Test coverage reporting setup
+7. Performance testing guidelines
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testing-card" data-category="advanced">
+                        <h3 class="testing-title">🔄 Integration Testing</h3>
+                        <div class="testing-content">
+                            <div class="test-layer">
+                                <h4 class="layer-title">API Integration Testing</h4>
+                                <p class="layer-desc">Comprehensive API testing with contract validation and end-to-end scenarios.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Integration Testing Prompt:</div>
+                                    <pre><code>Design integration testing for {system_type}:
+
+System Components:
+{component_list}
+
+Integration Points:
+{integration_points}
+
+Testing Scenarios:
+- Happy path workflows
+- Error handling scenarios
+- Edge case validation
+- Performance under load
+- Data consistency checks
+- Security vulnerability testing
+
+Test Environment:
+- Database state management
+- External service mocking
+- Environment configuration
+- Test data cleanup
+
+Deliverables:
+1. API contract testing setup
+2. Database integration tests
+3. End-to-end workflow tests
+4. Performance testing suite
+5. Security testing automation
+6. Test environment provisioning
+7. Continuous integration pipeline
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DevOps & Deployment Section -->
+            <section class="content-section">
+                <h2 class="section-title">DevOps & Deployment</h2>
+                <div class="devops-strategies">
+                    <div class="devops-card" data-category="advanced">
+                        <h3 class="devops-title">🚀 Container Orchestration</h3>
+                        <div class="devops-content">
+                            <div class="ops-layer">
+                                <h4 class="layer-title">Kubernetes Deployment</h4>
+                                <p class="layer-desc">Production-ready Kubernetes deployment with monitoring and scaling.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Kubernetes Deployment Prompt:</div>
+                                    <pre><code>Deploy application to Kubernetes cluster:
+
+Application Details:
+- Container image: {image_name}:{tag}
+- Resource requirements: CPU {cpu}, Memory {memory}
+- Scaling requirements: {scaling_config}
+- Environment variables: {env_vars}
+- Persistent volumes: {volume_requirements}
+
+Infrastructure:
+- Kubernetes version: {k8s_version}
+- Cloud provider: {cloud_provider}
+- Network configuration: {network_config}
+- Monitoring stack: {monitoring_stack}
+
+Requirements:
+- High availability deployment
+- Rolling update strategy
+- Health check integration
+- Auto-scaling configuration
+- Resource limits and requests
+- Network policies for security
+
+Provide:
+1. Kubernetes manifests (Deployments, Services, Ingress)
+2. ConfigMaps and Secrets management
+3. Horizontal Pod Autoscaler configuration
+4. Service mesh integration (optional)
+5. Monitoring and alerting setup
+6. Backup and disaster recovery procedures
+7. CI/CD pipeline for Kubernetes deployments
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="devops-card" data-category="optimize">
+                        <h3 class="devops-title">📊 Monitoring & Observability</h3>
+                        <div class="devops-content">
+                            <div class="ops-layer">
+                                <h4 class="layer-title">Comprehensive Monitoring</h4>
+                                <p class="layer-desc">Full-stack monitoring with metrics, logs, and traces.</p>
+                                <div class="layer-example">
+                                    <div class="example-header">Monitoring Setup Prompt:</div>
+                                    <pre><code>Implement comprehensive monitoring for {application_type}:
+
+Monitoring Requirements:
+- Application performance monitoring (APM)
+- Infrastructure metrics collection
+- Log aggregation and analysis
+- Distributed tracing
+- Error tracking and alerting
+- User experience monitoring
+
+Technology Stack:
+- Metrics: {metrics_backend}
+- Logs: {log_aggregation}
+- Traces: {tracing_backend}
+- Alerting: {alerting_system}
+- Dashboards: {dashboard_tool}
+
+Key Metrics:
+- Response time percentiles (p50, p95, p99)
+- Error rates and types
+- Resource utilization (CPU, memory, disk)
+- Database query performance
+- Cache hit/miss ratios
+- User session metrics
+
+Deliverables:
+1. Monitoring architecture design
+2. Metrics collection configuration
+3. Log aggregation and parsing rules
+4. Distributed tracing setup
+5. Alert threshold definitions
+6. Dashboard templates
+7. Incident response procedures
+8. Monitoring maintenance procedures
+"""</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Patterns Section -->
+            <section class="content-section">
+                <h2 class="section-title">Architecture Patterns</h2>
+                <div class="architecture-patterns">
+                    <div class="pattern-showcase" data-category="advanced">
+                        <h3 class="pattern-title">🏗️ Microservices Architecture</h3>
+                        <div class="pattern-content">
+                            <div class="pattern-implementation">
+                                <h4 class="implementation-title">Service Decomposition Strategy</h4>
+                                <div class="implementation-description">
+                                    <p>Systematic approach to decomposing monolithic applications into microservices.</p>
+                                </div>
+                                <div class="implementation-steps">
+                                    <div class="impl-step">
+                                        <span class="impl-number">1</span>
+                                        <div class="impl-content">
+                                            <strong>Domain Analysis</strong>
+                                            <pre><code>// Microservices Decomposition Prompt
+microservices_design_prompt = f"""
+Design microservices architecture for {business_domain}:
+
+Current Monolith:
+- Application size: {monolith_size}
+- Team size: {team_size}
+- Technology stack: {tech_stack}
+- Deployment frequency: {deployment_freq}
+
+Domain-Driven Design:
+- Bounded contexts: {bounded_contexts}
+- Domain entities: {entities}
+- Business capabilities: {capabilities}
+- Data dependencies: {data_flows}
+
+Decomposition Criteria:
+- Business capability alignment
+- Data consistency requirements
+- Team ownership boundaries
+- Technical complexity factors
+- Performance and scalability needs
+
+Deliverables:
+1. Service boundary definitions
+2. API contract specifications
+3. Data ownership model
+4. Communication patterns (sync/async)
+5. Service discovery strategy
+6. Resilience patterns implementation
+7. Migration roadmap from monolith
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="impl-step">
+                                        <span class="impl-number">2</span>
+                                        <div class="impl-content">
+                                            <strong>Communication Patterns</strong>
+                                            <pre><code>// Service Communication Prompt
+service_communication_prompt = f"""
+Define communication patterns for microservices:
+
+Service Catalog:
+{services_list}
+
+Communication Requirements:
+- Request/response patterns
+- Event-driven architecture needs
+- Data consistency requirements
+- Performance constraints
+- Fault tolerance requirements
+
+Pattern Selection:
+- Synchronous HTTP/REST APIs
+- Asynchronous message queues
+- Event streaming platforms
+- GraphQL for complex queries
+- gRPC for high-performance calls
+
+Provide:
+1. API gateway configuration
+2. Service mesh setup (if applicable)
+3. Message broker configuration
+4. Event schema definitions
+5. Circuit breaker implementations
+6. Retry and timeout policies
+7. Distributed tracing setup
+8. Service health monitoring
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pattern-showcase" data-category="optimize">
+                        <h3 class="pattern-title">🎯 Event-Driven Architecture</h3>
+                        <div class="pattern-content">
+                            <div class="pattern-implementation">
+                                <h4 class="implementation-title">Event Sourcing Implementation</h4>
+                                <div class="implementation-description">
+                                    <p>Build event-driven systems with event sourcing for complex business logic.</p>
+                                </div>
+                                <div class="implementation-steps">
+                                    <div class="impl-step">
+                                        <span class="impl-number">1</span>
+                                        <div class="impl-content">
+                                            <strong>Event Schema Design</strong>
+                                            <pre><code>// Event Sourcing Architecture Prompt
+event_sourcing_prompt = f"""
+Design event sourcing system for {domain}:
+
+Business Events:
+{events_list}
+
+Event Requirements:
+- Event immutability guarantee
+- Event versioning strategy
+- Event schema evolution
+- Event replay capabilities
+- Event ordering guarantees
+- Event compaction strategies
+
+Technical Specifications:
+- Event store implementation
+- Projection build strategies
+- Snapshot management
+- Event replay mechanisms
+- Conflict resolution strategies
+
+Provide:
+1. Event schema definitions
+2. Event store implementation
+3. Projection development patterns
+4. Snapshot strategy design
+5. Event replay procedures
+6. Performance optimization techniques
+7. Monitoring and observability setup
+8. Backup and recovery procedures
+"""</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Reference Section -->
+            <section class="content-section">
+                <h2 class="section-title">Quick Reference</h2>
+                <div class="reference-grid">
+                    <div class="reference-card" data-category="basics">
+                        <h3 class="reference-title">📋 Prompt Templates</h3>
+                        <div class="reference-content">
+                            <div class="template-section">
+                                <h4 class="template-type">General Code Generation</h4>
+                                <div class="template-code">
+                                    <pre><code>Generate {language} code that:
+- Purpose: {functionality}
+- Input: {input_spec}
+- Output: {output_spec}
+- Constraints: {limitations}
+- Style: {style_requirements}
+- Error handling: {error_strategy}</code></pre>
+                                </div>
+                            </div>
+                            <div class="template-section">
+                                <h4 class="template-type">Bug Fixing</h4>
+                                <div class="template-code">
+                                    <pre><code>Debug this {language} code:
+```
+{problematic_code}
+```
+
+Error: {error_message}
+Expected: {expected_behavior}
+Current: {actual_behavior}
+
+Fix the issue and explain:
+1. Root cause
+2. Solution approach
+3. Prevention measures</code></pre>
+                            </div>
+                            <div class="template-section">
+                                <h4 class="template-type">Code Review</h4>
+                                <div class="template-code">
+                                    <pre><code>Review this {language} code:
+```
+{code_to_review}
+```
+
+Focus areas:
+- Code quality and readability
+- Performance optimization opportunities
+- Security vulnerabilities
+- Best practices compliance
+- Testing coverage
+
+Provide specific, actionable feedback.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reference-card" data-category="prompts">
+                        <h3 class="reference-title">⚡ Quick Tips</h3>
+                        <div class="reference-content">
+                            <div class="tips-list">
+                                <div class="quick-tip">
+                                    <span class="tip-icon">💡</span>
+                                    <div class="tip-content">
+                                        <strong>Be Specific:</strong> Include programming language, framework version, and specific requirements in every prompt.
+                                    </div>
+                                </div>
+                                <div class="quick-tip">
+                                    <span class="tip-icon">🎯</span>
+                                    <div class="tip-content">
+                                        <strong>Provide Context:</strong> Share relevant code snippets, error messages, and current project structure.
+                                    </div>
+                                </div>
+                                <div class="quick-tip">
+                                    <span class="tip-icon">🔄</span>
+                                    <div class="tip-content">
+                                        <strong>Iterate:</strong> Use follow-up prompts to refine and improve the initial response.
+                                    </div>
+                                </div>
+                                <div class="quick-tip">
+                                    <span class="tip-icon">📝</span>
+                                    <div class="tip-content">
+                                        <strong>Request Explanations:</strong> Ask for step-by-step reasoning for complex problems.
+                                    </div>
+                                </div>
+                                <div class="quick-tip">
+                                    <span class="tip-icon">🧪</span>
+                                    <div class="tip-content">
+                                        <strong>Include Tests:</strong> Always request test cases along with implementation code.
+                                    </div>
+                                </div>
+                                <div class="quick-tip">
+                                    <span class="tip-icon">⚠️</span>
+                                    <div class="tip-content">
+                                        <strong>Handle Errors:</strong> Specify error handling requirements and edge cases.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
